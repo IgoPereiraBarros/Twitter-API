@@ -25,8 +25,8 @@ class TwitterClient(object):
     def get_tweets(self, keyword, n=15, lang='pt', max_id=None):
         if n > 0:
             url = BASE_URL + '?q={}&count={}'.format(keyword, n)
-            #if max_id is not None:
-                #url = url + '&max_id={}'.format(max_id)
+            if max_id is not None:
+                url = url + '&max_id={}'.format(max_id)
             if lang is not 'pt':
                 url = url + '&lang={}'.format(lang)
             response = self.__session.get(url)
